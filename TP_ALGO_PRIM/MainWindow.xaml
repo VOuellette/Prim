@@ -1,0 +1,41 @@
+﻿<Window x:Class="TP_ALGO_PRIM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP_ALGO_PRIM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid x:Name="labGrid" Height="750" Width="750" Background="Honeydew">
+
+            </Grid>
+        </StackPanel>        
+        
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="L :" Height="20" />
+            <TextBox x:Name="txtLongueur" Width="35" Height="20" Text="{Binding longueur, Mode=TwoWay}"></TextBox>
+
+            <TextBlock Text="H :" Height="20" />
+            <TextBox x:Name="txtHauteur" Width="35" Height="20" Text="{Binding hauteur, Mode=TwoWay}"></TextBox>
+        </StackPanel>
+        
+
+
+        <Button Grid.Row="1" Grid.Column="1" x:Name="btnGenererGraphe" Click="GenererLabyrinthe" Width="100" Height="50">Générer le graphe</Button>
+    </Grid>
+
+</Window>
+ 

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "TP_ALGO_PRIM/1.0.0": {
+        "runtime": {
+          "TP_ALGO_PRIM.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TP_ALGO_PRIM/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
