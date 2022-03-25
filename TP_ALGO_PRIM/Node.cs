@@ -9,8 +9,8 @@ namespace TP_ALGO_PRIM
     class Node
     {
         public List<NodeLink> links { get; } = new();
-
-        public void AddLink(Node node, int val) => this.links.Add(new NodeLink(this, node, val));
+        public NodeLink linkFrom { get; set; } = null;
+        public void AddLink(Node node, int val, Direction direction) => this.links.Add(new NodeLink(this, node, val, direction));
 
         public void GenerateWeights()
         {

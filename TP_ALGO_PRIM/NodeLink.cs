@@ -8,13 +8,17 @@ namespace TP_ALGO_PRIM
 {
     class NodeLink
     {
+
         public Node primaryNode { get; }
         public Node secondaryNode { get; }
-        Random rnd;
+
+        private Random rnd;
+        public Direction direction { get; }
         public int val { get; private set; }
 
-        public NodeLink(Node primaryNode, Node secondaryNode, int val)
+        public NodeLink(Node primaryNode, Node secondaryNode, int val, Direction direction)
         {
+            this.direction = direction;
             this.primaryNode = primaryNode;
             this.secondaryNode = secondaryNode;
             this.val = val;

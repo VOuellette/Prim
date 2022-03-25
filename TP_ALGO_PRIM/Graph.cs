@@ -12,7 +12,6 @@ namespace TP_ALGO_PRIM
         public Dimension dim { get; }
         public Node[,] nodes { get; private set; }
         Random rnd = new Random();
-        private Node[,] newNodes;
 
         public Graph(Dimension dim)
         {
@@ -22,7 +21,7 @@ namespace TP_ALGO_PRIM
 
         public Graph(Node[,] newNodes)
         {
-            this.newNodes = newNodes;
+            this.nodes = newNodes;
             this.dim = new Dimension(newNodes.GetLength(1), newNodes.GetLength(0));
         }
 
@@ -30,29 +29,32 @@ namespace TP_ALGO_PRIM
         {
             int startRow = rnd.Next(0, dim.y);
 
-            int nodeRow = 0;
-            int nodeCol = 0;
-            int minLinkIndex = 0;
-
-            int ctrBoucleExterne = 0;
-
             List<Node> B = new();
             List<NodeLink> S = new();
 
             NodeLink minLink;
-            Node n;
-            Node minNode;
-
-            Node[,] newNodes = new Node[dim.y, dim.x];
 
             B.Add(nodes[0, 0]);
             while(B.Count != dim.x * dim.y)
             {
                 minLink = new NodeLink(100);
-                minNode = new Node();
+                foreach (Node n in B) 
+                {
+                    for (int i = 0; i < n.links.Count; i++)
+                    {
+                        NodeLink nl = n.links[i];
+                        if (nl.val < minLink.val && !B.Contains(nl.secondaryNode))
+                        {
+                            minLink = nl;
+                        }
+                    }
+                }
 
+                minLink.secondaryNode.linkFrom = minLink;
+                B.Add(minLink.secondaryNode);
+                S.Add(minLink);
                 // On Boucle dans les Nodes
-                for (int row = 0; row < this.dim.y; row++)
+                /*for (int row = 0; row < this.dim.y; row++)
                 {
                     for (int col = 0; col < this.dim.x; col++)
                     {
@@ -83,15 +85,34 @@ namespace TP_ALGO_PRIM
                 /*minNode.links.Clear();
                 minNode.links.Add(minLink);
 
-                newNodes[nodeRow, nodeCol] = minNode;  */              
+                newNodes[nodeRow, nodeCol] = minNode;        
 
-                ++ctrBoucleExterne;
+                ++ctrBoucleExterne;*/
+            }
+            for (int row = 0; row < this.dim.y; row++)
+            {
+                for (int col = 0; col < this.dim.x; col++)
+                {
+                    Node n = this.nodes[row, col];
+                    Node temporaryNode = new Node();
+               
+                    foreach (NodeLink link in n.links)
+                    {
+                        if (S.Contains(link))
+                        {
+                            temporaryNode.links.Add(link);
+                        }
+                    }
+                    temporaryNode.linkFrom = n.linkFrom;
+                    this.nodes[row, col] = temporaryNode;
+                }
             }
 
-            Debug.WriteLine("Prim done :)\n");
-            Graph newGraph = new Graph(newNodes);
 
-            return newGraph;
+
+            Debug.WriteLine("Prim done :)\n");
+
+            return new Graph(nodes);
         }
 
         public void LinkAllNodes()
@@ -102,12 +123,12 @@ namespace TP_ALGO_PRIM
                 for (int col = 0; col < this.dim.x; col++)
                 {
                     // Liens du haut et du bas
-                    if (row - 1 >= 0) this.nodes[row, col].AddLink(this.nodes[row - 1, col], 0);
-                    if (row + 1 < this.dim.y) this.nodes[row, col].AddLink(this.nodes[row + 1, col], 0);
+                    if (row - 1 >= 0) this.nodes[row, col].AddLink(this.nodes[row - 1, col], 0, Direction.Top);
+                    if (row + 1 < this.dim.y) this.nodes[row, col].AddLink(this.nodes[row + 1, col], 0, Direction.Bottom);
 
                     // Liens de gauche et de droite
-                    if (col - 1 >= 0) this.nodes[row, col].AddLink(this.nodes[row, col - 1], 0);
-                    if (col + 1 < this.dim.x) this.nodes[row, col].AddLink(this.nodes[row, col + 1], 0);
+                    if (col - 1 >= 0) this.nodes[row, col].AddLink(this.nodes[row, col - 1], 0, Direction.Left);
+                    if (col + 1 < this.dim.x) this.nodes[row, col].AddLink(this.nodes[row, col + 1], 0, Direction.Right);
                 }
             }
         }

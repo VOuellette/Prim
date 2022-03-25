@@ -51,18 +51,64 @@ namespace TP_ALGO_PRIM
             {
                 for(int col = 0; col < solution.dim.x; col++)
                 {
-                    Rectangle rect = new Rectangle();
-                    int lol = new Random().Next(0, 255);
-                    rect.Fill = new SolidColorBrush(Color.FromArgb((byte)lol, 0, 0, 0));
+                    Button tile = new Button();
 
-                    if(solution.nodes[row, col].links.Count > 0)
+                    tile.BorderBrush = Brushes.Black;
+                    Thickness thickness = new Thickness { Top = 10, Bottom = 10, Left = 10, Right =10 };
+                    tile.IsEnabled = false;
+
+
+                    Node node = solution.nodes[row, col];
+                    List<NodeLink> links = node.links;
+
+                    if(links.Count > 0)
                     {
-
+                        foreach(NodeLink link in links)
+                        {
+                            switch (link.direction)
+                            {
+                                case Direction.Top:
+                                    thickness.Top = 0;
+                                    break;
+                                case Direction.Right:
+                                    thickness.Right = 0;
+                                    break;
+                                case Direction.Left:
+                                    thickness.Left = 0;
+                                    break;
+                                case Direction.Bottom:
+                                    thickness.Bottom = 0;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
                     }
 
-                    Grid.SetRow(rect, row);
-                    Grid.SetColumn(rect, col);
-                    labGrid.Children.Add(rect);
+                    if (node.linkFrom != null)
+                    {
+                        switch (node.linkFrom.direction)
+                        {
+                            case Direction.Top:
+                                thickness.Bottom = 0;
+                                break;
+                            case Direction.Right:
+                                thickness.Left = 0;
+                                break;
+                            case Direction.Left:
+                                thickness.Right = 0;
+                                break;
+                            case Direction.Bottom:
+                                thickness.Top = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    tile.BorderThickness = thickness;
+                    Grid.SetRow(tile, row);
+                    Grid.SetColumn(tile, col);
+                    labGrid.Children.Add(tile);
                 }
             }
         }

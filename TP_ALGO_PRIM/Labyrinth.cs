@@ -17,9 +17,7 @@ namespace TP_ALGO_PRIM
 
         public Graph GetSolution()
         {
-            Graph solution = this.graph.Prim();
-
-            return solution;
+            return this.graph.Prim();
         }
     }
 }
