@@ -144,6 +144,7 @@ namespace TP_ALGO_PRIM
         {
             public int longueur { get; set; }
             public int hauteur { get; set; }
+            public int xFois { get; set; }
             public event PropertyChangedEventHandler PropertyChanged;
             public long nbOperationsValue { get; set; }
             public long n2Value { get; set; }
@@ -172,6 +173,7 @@ namespace TP_ALGO_PRIM
             {
                 longueur = 15;
                 hauteur = 15;
+                xFois = 1;
                 this.n2Value = 0;
                 this.nbOperationsValue = 0;
             }

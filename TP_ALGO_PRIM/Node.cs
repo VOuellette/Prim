@@ -26,6 +26,11 @@ namespace TP_ALGO_PRIM
                 this.links.Add(new NodeLink(this, node, val, direction));
             }
         }
+        
+        public void addLink(NodeLink link)
+        {
+            this.links.Add(link);
+        }
 
         public void GenerateWeights()
         {

@@ -35,13 +35,19 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Orientation="Vertical">
             <Button  x:Name="btnGenererGraphe" Margin="0, 10, 0, 0" Click="GenererLabyrinthe" Width="100" Height="50">Générer le graphe</Button>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Executer X fois :" Height="20" />
+                <TextBox x:Name="txtXFois" Width="35" Height="20" Text="{Binding xFois, Mode=TwoWay}"></TextBox>
+            </StackPanel>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="n^2 : " Margin="0, 10, 0, 0"></TextBlock>
                 <TextBlock x:Name="n2" Text="{Binding n2}" Margin="0, 10, 0, 0"></TextBlock>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Nombre d'opérations : " Margin="0, 10, 0, 0"></TextBlock>
+                <TextBlock Text="Nombre d'opérations moyen : " Margin="0, 10, 0, 0"></TextBlock>
                 <TextBlock x:Name="nbOperations" Text="{Binding nbOperations}" Margin="0, 10, 0, 0"></TextBlock>
             </StackPanel>
         </StackPanel>

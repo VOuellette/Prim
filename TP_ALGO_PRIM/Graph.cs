@@ -28,6 +28,16 @@ namespace TP_ALGO_PRIM
             this.n2 = dim.x * dim.y;
         }
 
+        private bool lolll(List<NodeLink> lst, Node n1, Node n2)
+        {
+            foreach(NodeLink nl in lst){
+                if (nl.primaryNode == n1 && nl.secondaryNode == n2)
+                    return true;
+            }
+            return false;
+        }
+        
+
         public Graph Prim()
         {
             nbOperations = 0;
@@ -48,12 +58,10 @@ namespace TP_ALGO_PRIM
                         nbOperations++;
 
                         NodeLink nl = n.links[i];
-
+                        
                         if (nl.val < minLink.val && !B.Contains(nl.secondaryNode))
                             minLink = nl;
                     }
-
-
                 }
 
 
@@ -64,7 +72,6 @@ namespace TP_ALGO_PRIM
 
             this.n2 = (int) Math.Pow(dim.x * dim.y, 2);
             
-            Debug.WriteLine(Math.Pow(dim.x * dim.y, 2) + " | " + nbOperations);
 
             for (int row = 0; row < this.dim.y; row++)
             {

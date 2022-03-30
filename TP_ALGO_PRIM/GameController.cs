@@ -21,16 +21,33 @@ namespace TP_ALGO_PRIM
 
         public void GenererLabyrinthe()
         {
-            Graph graph = new Graph(this.labDim);
-            graph.LinkAllNodes();
-            graph.GenerateWeights();
+            long sumn2 = 0;
+            long sumNbOperations = 0;
+            int n2;
+            int nbOperations;
+            
+            Graph graph;
+            Graph solution = new Graph(this.labDim);
+            
+            for(int i = 0; i < window.settings.xFois; i++) {
+                graph = new Graph(this.labDim);
+                solution =  new Graph(this.labDim);
 
-            this.lab = new Labyrinth(graph);
-            Graph solution = this.lab.GetSolution();
+                graph.LinkAllNodes();
+                graph.GenerateWeights();
+
+                this.lab = new Labyrinth(graph);
+                solution = this.lab.GetSolution();
+                
+                sumn2 += graph.n2;
+                sumNbOperations += graph.nbOperations;
+            }
+
+            n2 = (int) sumn2 / window.settings.xFois;
+            nbOperations = (int) sumNbOperations / window.settings.xFois;
+
             window.DrawGraph(solution);
-
-            Debug.WriteLine(graph.n2 + " | " + graph.nbOperations);
-            window.setSettings(graph.n2, graph.nbOperations);
+            window.setSettings(n2, nbOperations);
         }
     }
 }
