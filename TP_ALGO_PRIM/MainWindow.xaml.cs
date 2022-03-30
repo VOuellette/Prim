@@ -61,7 +61,7 @@ namespace TP_ALGO_PRIM
                         tile.Background = Brushes.White;
 
                     tile.BorderBrush = Brushes.Black;
-                    Thickness thickness = new Thickness { Top = 4, Bottom = 4, Left = 4, Right = 4 };
+                    Thickness thickness = new Thickness { Top = 3, Bottom = 3, Left = 3, Right = 3 };
                     
 
 
