@@ -27,7 +27,7 @@ namespace TP_ALGO_PRIM
 
         public Graph Prim()
         {
-            int startRow = rnd.Next(0, dim.y);
+            int nbOperations = 0;
 
             List<Node> B = new();
             List<NodeLink> S = new();
@@ -35,60 +35,32 @@ namespace TP_ALGO_PRIM
             NodeLink minLink;
 
             B.Add(nodes[0, 0]);
-            while(B.Count != dim.x * dim.y)
+            while(B.Count < dim.x * dim.y)
             {
                 minLink = new NodeLink(100);
                 foreach (Node n in B) 
                 {
                     for (int i = 0; i < n.links.Count; i++)
                     {
+                        nbOperations++;
+
                         NodeLink nl = n.links[i];
+
                         if (nl.val < minLink.val && !B.Contains(nl.secondaryNode))
-                        {
                             minLink = nl;
-                        }
                     }
+
+
                 }
+
 
                 minLink.secondaryNode.linkFrom = minLink;
                 B.Add(minLink.secondaryNode);
                 S.Add(minLink);
-                // On Boucle dans les Nodes
-                /*for (int row = 0; row < this.dim.y; row++)
-                {
-                    for (int col = 0; col < this.dim.x; col++)
-                    {
-                        n = nodes[row, col];
-
-                        if (!B.Contains(n)) continue;
-
-                        for(int i = 0; i < n.links.Count; i++)
-                        {
-                            NodeLink nl = n.links[i];
-                            if (nl.val < minLink.val && !B.Contains(nl.secondaryNode))
-                            {
-                                minLink = nl;
-                                minNode = n;
-
-                                nodeRow = row;
-                                nodeCol = col;
-                            }
-                        }
-                    }
-                }
-
-                if (ctrBoucleExterne != 0)
-                    B.Add(minLink.secondaryNode);
-
-                // Reste a formatter et les node et links pour l'affichage
-
-                /*minNode.links.Clear();
-                minNode.links.Add(minLink);
-
-                newNodes[nodeRow, nodeCol] = minNode;        
-
-                ++ctrBoucleExterne;*/
             }
+
+            Debug.WriteLine(Math.Pow(dim.x * dim.y, 2) + " | " + nbOperations);
+
             for (int row = 0; row < this.dim.y; row++)
             {
                 for (int col = 0; col < this.dim.x; col++)
@@ -107,10 +79,6 @@ namespace TP_ALGO_PRIM
                     this.nodes[row, col] = temporaryNode;
                 }
             }
-
-
-
-            Debug.WriteLine("Prim done :)\n");
 
             return new Graph(nodes);
         }
@@ -141,11 +109,8 @@ namespace TP_ALGO_PRIM
                 for (int col = 0; col < this.dim.x; col++)
                 {
                     nodes[row, col].GenerateWeights();
-                    Debug.Write(nodes[row, col].links.Count + " ");
                 }
-                Debug.Write("\n");
             }
-            Debug.WriteLine("");
         }
 
         private void InitNodes()

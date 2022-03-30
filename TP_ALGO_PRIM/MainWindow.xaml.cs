@@ -53,9 +53,16 @@ namespace TP_ALGO_PRIM
                 {
                     Button tile = new Button();
 
+                    if (row == 0 && col == 0)
+                        tile.Background = Brushes.LawnGreen;
+                    else if (row == solution.dim.y - 1 && col == solution.dim.x - 1)
+                        tile.Background = Brushes.DarkRed;
+                    else
+                        tile.Background = Brushes.White;
+
                     tile.BorderBrush = Brushes.Black;
-                    Thickness thickness = new Thickness { Top = 10, Bottom = 10, Left = 10, Right =10 };
-                    tile.IsEnabled = false;
+                    Thickness thickness = new Thickness { Top = 4, Bottom = 4, Left = 4, Right = 4 };
+                    
 
 
                     Node node = solution.nodes[row, col];
@@ -130,8 +137,8 @@ namespace TP_ALGO_PRIM
             public int hauteur { get; set; }
             public Settings()
             {
-                longueur = 10;
-                hauteur = 5;
+                longueur = 15;
+                hauteur = 15;
             }
         }
 

@@ -18,11 +18,11 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid x:Name="labGrid" Height="750" Width="750" Background="Honeydew">
+            <Grid x:Name="labGrid" Height="750" Width="750" Background="White">
 
             </Grid>
-        </StackPanel>        
-        
+        </StackPanel>
+
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Grid.Row="0" Grid.Column="1">
             <TextBlock Text="L :" Height="20" />
@@ -31,7 +31,7 @@
             <TextBlock Text="H :" Height="20" />
             <TextBox x:Name="txtHauteur" Width="35" Height="20" Text="{Binding hauteur, Mode=TwoWay}"></TextBox>
         </StackPanel>
-        
+
 
 
         <Button Grid.Row="1" Grid.Column="1" x:Name="btnGenererGraphe" Click="GenererLabyrinthe" Width="100" Height="50">Générer le graphe</Button>

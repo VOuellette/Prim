@@ -3,9 +3,7 @@ C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\bin\Debug\net5.0-windows\TP_A
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\bin\Debug\net5.0-windows\TP_ALGO_PRIM.runtimeconfig.json
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\bin\Debug\net5.0-windows\TP_ALGO_PRIM.runtimeconfig.dev.json
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\bin\Debug\net5.0-windows\TP_ALGO_PRIM.dll
-C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\bin\Debug\net5.0-windows\ref\TP_ALGO_PRIM.dll
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\bin\Debug\net5.0-windows\TP_ALGO_PRIM.pdb
-C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\TP_ALGO_PRIM.csprojAssemblyReference.cache
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\TP_ALGO_PRIM_MarkupCompile.cache
@@ -20,3 +18,5 @@ C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\TP_A
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\ref\TP_ALGO_PRIM.dll
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\TP_ALGO_PRIM.pdb
 C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\TP_ALGO_PRIM.genruntimeconfig.cache
+C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\TP_ALGO_PRIM.csproj.AssemblyReference.cache
+C:\Users\xD\source\repos\TP_ALGO_PRIM\TP_ALGO_PRIM\obj\Debug\net5.0-windows\refint\TP_ALGO_PRIM.dll

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Sscty47vqHBEK5SzrD2o5gzpQU8+jVm6CXns09kK/8XJnSDgohSeG9GiAAyPIplstRjJx8DEQpOPpzUshq6LJg==",
+  "dgSpecHash": "vHqIQ5pG21YQqj8Pju97wXQkdlAx7/j5qo25aHzHBPgCdPgKY0kh1gu7E5NiM9PFrSoCeWLcPlHwk8MX5xDtRA==",
   "success": true,
   "projectFilePath": "C:\\Users\\xD\\source\\repos\\TP_ALGO_PRIM\\TP_ALGO_PRIM\\TP_ALGO_PRIM.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\xD\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
+  ],
   "logs": []
 }
