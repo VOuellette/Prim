@@ -10,7 +10,22 @@ namespace TP_ALGO_PRIM
     {
         public List<NodeLink> links { get; } = new();
         public NodeLink linkFrom { get; set; } = null;
-        public void AddLink(Node node, int val, Direction direction) => this.links.Add(new NodeLink(this, node, val, direction));
+        public void AddLink(Node node, int val, Direction direction) 
+        {
+            Boolean verification = true;
+            foreach (NodeLink link in node.links) 
+            {
+                if (link.secondaryNode == this) 
+                {
+                    verification = false;
+                }
+            }
+
+            if (verification)
+            {
+                this.links.Add(new NodeLink(this, node, val, direction));
+            }
+        }
 
         public void GenerateWeights()
         {
