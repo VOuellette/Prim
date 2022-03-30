@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "vHqIQ5pG21YQqj8Pju97wXQkdlAx7/j5qo25aHzHBPgCdPgKY0kh1gu7E5NiM9PFrSoCeWLcPlHwk8MX5xDtRA==",
+  "dgSpecHash": "h0HtkHY4/CR2etuwMuTQUhLnaFtlZrkl4WBvnC6dLkdXLXfVbe0r6O6OoO/Ox736h0zG+AiqFk3cdNX4lYiZow==",
   "success": true,
   "projectFilePath": "C:\\Users\\xD\\source\\repos\\TP_ALGO_PRIM\\TP_ALGO_PRIM\\TP_ALGO_PRIM.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\xD\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
+    "C:\\Users\\xD\\.nuget\\packages\\fody\\6.5.1\\fody.6.5.1.nupkg.sha512",
+    "C:\\Users\\xD\\.nuget\\packages\\propertychanged.fody\\3.4.0\\propertychanged.fody.3.4.0.nupkg.sha512"
   ],
   "logs": []
 }

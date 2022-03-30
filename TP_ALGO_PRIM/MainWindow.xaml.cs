@@ -1,7 +1,10 @@
-﻿using System;
+﻿using PropertyChanged;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,12 +25,13 @@ namespace TP_ALGO_PRIM
     public partial class MainWindow : Window
     {
 
-        Settings settings = new();
+        public Settings settings { get; private set; }
         GameController gc;
 
         public MainWindow()
         {
             InitializeComponent();
+            settings = new();
             this.DataContext = settings;
             
             Init();
@@ -131,15 +135,53 @@ namespace TP_ALGO_PRIM
             this.gc.GenererLabyrinthe();
         }
 
-        private class Settings
+        public void setSettings(int n2, int nbOperations) {
+            settings.n2Value = n2;
+            settings.nbOperationsValue = nbOperations;
+        }
+
+        public class Settings : INotifyPropertyChanged
         {
             public int longueur { get; set; }
             public int hauteur { get; set; }
+            public event PropertyChangedEventHandler PropertyChanged;
+            public long nbOperationsValue { get; set; }
+            public long n2Value { get; set; }
+
+            public long nbOperations
+            {
+                get { return nbOperationsValue; }
+                set
+                {
+                    nbOperationsValue = value;
+                    NotifyPropertyChanged();
+                }
+            }
+            
+            public long n2
+            {
+                get { return n2Value; }
+                set
+                {
+                    n2Value = value;
+                    NotifyPropertyChanged();
+                }
+            }
+
             public Settings()
             {
                 longueur = 15;
                 hauteur = 15;
+                this.n2Value = 0;
+                this.nbOperationsValue = 0;
             }
+
+            private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+
+            
         }
 
     }

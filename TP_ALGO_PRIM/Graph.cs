@@ -12,6 +12,8 @@ namespace TP_ALGO_PRIM
         public Dimension dim { get; }
         public Node[,] nodes { get; private set; }
         Random rnd = new Random();
+        public int nbOperations { get; private set; }
+        public int n2 { get; private set; }
 
         public Graph(Dimension dim)
         {
@@ -23,11 +25,12 @@ namespace TP_ALGO_PRIM
         {
             this.nodes = newNodes;
             this.dim = new Dimension(newNodes.GetLength(1), newNodes.GetLength(0));
+            this.n2 = dim.x * dim.y;
         }
 
         public Graph Prim()
         {
-            int nbOperations = 0;
+            nbOperations = 0;
 
             List<Node> B = new();
             List<NodeLink> S = new();
@@ -59,6 +62,8 @@ namespace TP_ALGO_PRIM
                 S.Add(minLink);
             }
 
+            this.n2 = (int) Math.Pow(dim.x * dim.y, 2);
+            
             Debug.WriteLine(Math.Pow(dim.x * dim.y, 2) + " | " + nbOperations);
 
             for (int row = 0; row < this.dim.y; row++)

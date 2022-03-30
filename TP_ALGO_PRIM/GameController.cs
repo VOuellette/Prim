@@ -9,7 +9,6 @@ namespace TP_ALGO_PRIM
 {
     class GameController
     {
-        private ViewController vc;
         private Labyrinth lab;
         private Dimension labDim;
         private MainWindow window;
@@ -29,6 +28,9 @@ namespace TP_ALGO_PRIM
             this.lab = new Labyrinth(graph);
             Graph solution = this.lab.GetSolution();
             window.DrawGraph(solution);
+
+            Debug.WriteLine(graph.n2 + " | " + graph.nbOperations);
+            window.setSettings(graph.n2, graph.nbOperations);
         }
     }
 }
